@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 162 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 162 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 162 100% 50%;
+    --radius: 0.625rem;
+    
+    --color-bg-primary: #000000;
+    --color-bg-secondary: #0a0a0a;
+    --color-bg-card: #111111;
+    --color-accent: #00e5c9;
+    --color-accent-dim: rgba(0, 229, 201, 0.15);
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a0a0a0;
+    --color-text-muted: #666666;
+    --color-border: #222222;
+    --color-nav-bg: rgba(10, 10, 10, 0.85);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-black text-white antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  ::selection {
+    background: rgba(0, 229, 201, 0.3);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .text-accent {
+    color: var(--color-accent);
+  }
+  
+  .bg-accent-dim {
+    background-color: var(--color-accent-dim);
+  }
+  
+  .border-accent {
+    border-color: var(--color-accent);
+  }
+  
+  .gradient-teal {
+    background: radial-gradient(ellipse at center, rgba(0, 229, 201, 0.15) 0%, transparent 70%);
+  }
+  
+  .gradient-teal-strong {
+    background: radial-gradient(ellipse at center, rgba(0, 229, 201, 0.25) 0%, transparent 60%);
+  }
+  
+  .glass {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  .glass-light {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #00e5c9 0%, #00b8a3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glow-teal {
+    box-shadow: 0 0 30px rgba(0, 229, 201, 0.3), 0 0 60px rgba(0, 229, 201, 0.1);
+  }
+  
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+  }
+  
+  .marquee-content {
+    display: flex;
+    animation: marquee 20s linear infinite;
+    flex-shrink: 0;
+  }
+  
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  
+  .spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .orbit {
+    animation: orbit 20s linear infinite;
+  }
+  
+  @keyframes orbit {
+    from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+  }
+  
+  .orbit-reverse {
+    animation: orbit-reverse 25s linear infinite;
+  }
+  
+  @keyframes orbit-reverse {
+    from { transform: rotate(0deg) translateX(160px) rotate(0deg); }
+    to { transform: rotate(-360deg) translateX(160px) rotate(360deg); }
+  }
+  
+  .orbit-slow {
+    animation: orbit-slow 30s linear infinite;
+  }
+  
+  @keyframes orbit-slow {
+    from { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .line-glow {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 229, 201, 0.6) 50%, transparent 100%);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
