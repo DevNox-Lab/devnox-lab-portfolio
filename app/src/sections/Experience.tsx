@@ -5,11 +5,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const orbitBadges = [
-  { id: 1, name: 'Finsweet', className: 'orbit', style: { animationDelay: '0s' } },
-  { id: 2, name: 'Webflow', className: 'orbit', style: { animationDelay: '-4s' } },
-  { id: 3, name: 'Client-First', className: 'orbit-reverse', style: { animationDelay: '-8s' } },
-  { id: 4, name: 'Attributes', className: 'orbit-slow', style: { animationDelay: '-12s' } },
-  { id: 5, name: 'Figma', className: 'orbit-reverse', style: { animationDelay: '-16s' } },
+  { id: 1, name: 'Websites', className: 'orbit', style: { animationDelay: '0s' } },
+  { id: 2, name: 'Mobile Apps', className: 'orbit', style: { animationDelay: '-4s' } },
+  { id: 3, name: 'AI Solutions', className: 'orbit-reverse', style: { animationDelay: '-8s' } },
+  { id: 4, name: 'ML Workflows', className: 'orbit-slow', style: { animationDelay: '-12s' } },
+  { id: 5, name: 'Shopify', className: 'orbit-reverse', style: { animationDelay: '-16s' } },
+  { id: 6, name: 'WordPress', className: 'orbit', style: { animationDelay: '-20s' } },
 ];
 
 export default function Experience() {
@@ -89,15 +90,7 @@ export default function Experience() {
                   }}
                 >
                   <div className="glass-light border border-white/10 rounded-full px-4 py-2 sm:px-5 sm:py-2.5 text-white text-xs sm:text-sm font-medium whitespace-nowrap hover:border-teal-400/30 transition-colors">
-                    <span className="flex items-center gap-2">
-                      {badge.name === 'Finsweet' && (
-                        <span className="text-teal-400">{'{'}</span>
-                      )}
-                      {badge.name}
-                      {badge.name === 'Finsweet' && (
-                        <span className="text-teal-400">{'}'}</span>
-                      )}
-                    </span>
+                    <span className="flex items-center gap-2">{badge.name}</span>
                   </div>
                 </div>
               );
@@ -115,12 +108,16 @@ export default function Experience() {
 
         {/* Text */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-white uppercase tracking-wide">
-          Years of
+          3+ years of
           <br />
-          <span className="font-medium">Experience in</span>
+          <span className="font-medium">industrial experience in</span>
           <br />
-          Web Development
+          web, mobile, AI/ML and commerce
         </h2>
+
+        <p className="mt-5 text-sm sm:text-base text-white/60 max-w-3xl mx-auto leading-relaxed">
+          DevNox Lab delivers production-ready websites, mobile apps, AI and ML workflows, plus Shopify and WordPress services built for real business use.
+        </p>
 
         {/* Cursor indicator */}
         <div className="mt-8 flex justify-center">

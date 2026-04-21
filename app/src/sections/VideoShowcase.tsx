@@ -41,7 +41,7 @@ export default function VideoShowcase() {
     return () => ctx.revert();
   }, []);
 
-  const marqueeText = 'Everton Kayser';
+  const marqueeText = 'DevNox Lab';
   const repeatCount = 10;
 
   return (
@@ -61,7 +61,7 @@ export default function VideoShowcase() {
                   <polygon points="5,3 19,12 5,21" />
                 </svg>
               </div>
-              <p className="text-white/40 text-sm">Showreel 2024</p>
+              <p className="text-white/40 text-sm">Showreel 2026</p>
             </div>
           </div>
           

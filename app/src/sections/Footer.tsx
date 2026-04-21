@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Instagram, Linkedin, Youtube, ExternalLink } from 'lucide-react';
+import BrandLogo from '@/components/BrandLogo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,9 +98,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/5 pt-6">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <span className="text-xl sm:text-2xl font-light text-white tracking-tight">
-              eve<span className="text-teal-400">kayser</span>
-            </span>
+            <BrandLogo className="h-12 sm:h-14 w-auto" />
             <a 
               href="mailto:hello@evekayser.com"
               className="text-white/40 hover:text-teal-400 text-xs sm:text-sm transition-colors ml-2"

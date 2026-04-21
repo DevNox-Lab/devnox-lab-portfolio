@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import BrandLogo from '@/components/BrandLogo';
 
 export default function TopBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,9 +24,7 @@ export default function TopBar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center">
-            <span className="text-lg sm:text-xl font-light text-white tracking-tight">
-              eve<span className="text-teal-400">kayser</span>
-            </span>
+            <BrandLogo className="h-10 sm:h-12 w-auto" />
           </a>
 
           {/* Right side */}
