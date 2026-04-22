@@ -77,12 +77,30 @@ export default function Clients() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="clients-header text-center mb-10 sm:mb-14">
-          <p className="text-white/40 text-xs sm:text-sm tracking-[0.15em] uppercase mb-2">
-            Great Companies Experience
+          <p className="text-teal-400 text-xs sm:text-sm tracking-[0.2em] uppercase mb-2">
+            Trusted by teams
           </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-white">
-            Clients I worked with
+            Brands and founders we have supported
           </h2>
+          <p className="mt-3 text-white/55 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            We collaborate with product teams, startups, and established companies that care about execution quality and delivery speed.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-10">
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 text-center">
+            <p className="text-2xl sm:text-3xl font-semibold text-white">3+</p>
+            <p className="text-white/50 text-xs sm:text-sm uppercase tracking-[0.15em] mt-1">Years industrial experience</p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 text-center">
+            <p className="text-2xl sm:text-3xl font-semibold text-white">6</p>
+            <p className="text-white/50 text-xs sm:text-sm uppercase tracking-[0.15em] mt-1">Core service lines</p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 text-center">
+            <p className="text-2xl sm:text-3xl font-semibold text-white">Global</p>
+            <p className="text-white/50 text-xs sm:text-sm uppercase tracking-[0.15em] mt-1">Delivery footprint</p>
+          </div>
         </div>
 
         {/* Logo marquee */}

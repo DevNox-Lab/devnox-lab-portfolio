@@ -1,16 +1,16 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Instagram, Linkedin, Youtube, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, MessageCircle, Mail } from 'lucide-react';
 import BrandLogo from '@/components/BrandLogo';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const socialLinks = [
-  { name: 'INSTAGRAM', icon: Instagram, url: 'https://www.instagram.com/evekayser/' },
-  { name: 'LINKEDIN', icon: Linkedin, url: 'https://www.linkedin.com/in/evekayser/' },
-  { name: 'YOUTUBE', icon: Youtube, url: 'https://www.youtube.com/@EveKayser' },
-  { name: 'BEHANCE', icon: ExternalLink, url: 'https://www.behance.net/evekayser' },
+  { name: 'LINKEDIN', icon: Linkedin, url: 'https://www.linkedin.com' },
+  { name: 'GITHUB', icon: Github, url: 'https://github.com' },
+  { name: 'WHATSAPP', icon: MessageCircle, url: 'https://wa.me/5545991134020' },
+  { name: 'EMAIL', icon: Mail, url: 'mailto:hello@devnoxlab.com' },
 ];
 
 export default function Footer() {
@@ -47,7 +47,7 @@ export default function Footer() {
     return () => ctx.revert();
   }, []);
 
-  const marqueeText = "Let's Talk - ";
+  const marqueeText = 'Build with DevNox Lab - ';
   const repeatCount = 8;
 
   return (
@@ -100,16 +100,16 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <BrandLogo className="h-12 sm:h-14 w-auto" />
             <a 
-              href="mailto:hello@evekayser.com"
+              href="mailto:hello@devnoxlab.com"
               className="text-white/40 hover:text-teal-400 text-xs sm:text-sm transition-colors ml-2"
             >
-              hello@evekayser.com
+              hello@devnoxlab.com
             </a>
           </div>
 
           {/* Copyright */}
           <p className="text-white/30 text-xs text-center sm:text-right">
-            Kayser Web | 30.289.467/0001-64 &copy; All Rights Reserved
+            DevNox Lab &copy; All Rights Reserved
           </p>
         </div>
       </div>
@@ -117,7 +117,7 @@ export default function Footer() {
       {/* Side vertical text */}
       <div className="hidden xl:block absolute right-8 bottom-32">
         <p className="text-white/5 text-xs tracking-[0.3em] uppercase [writing-mode:vertical-lr]">
-          Webflow Expert • Awwwards Nominee • Client-First Certified •
+          Websites • Mobile Apps • AI and ML Workflows • Shopify • WordPress •
         </p>
       </div>
     </footer>

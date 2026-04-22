@@ -7,18 +7,36 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface AboutPoint {
   id: number;
+  title: string;
   text: string;
 }
 
 const aboutData: AboutPoint[] = [
-  { id: 1, text: "A decade of experience working as a freelance designer and Webflow developer, collaborating with over 100 companies, startups, and digital influencers worldwide." },
-  { id: 2, text: "Worked with big companies like Dropbox, GitHub, Banco do Brasil, and Maven Clinic (one of the most innovative companies by FastCompany)." },
-  { id: 3, text: "Founder and teacher at Curso de Webflow, the first Webflow course in Brazil with over 400 students." },
-  { id: 4, text: "Partner at Finsweet for 6 years, proudly contributing to one of the largest agencies specializing in Webflow globally." },
-  { id: 5, text: "Specialized in Digital Marketing, designing and developing pages that sold more than 10 million dollars in Online Courses in Brazil." },
-  { id: 6, text: "Creator and certified developer of the Client-First style system, utilized for crafting organized and easily maintainable websites." },
-  { id: 7, text: "Experienced with Motion Graphics, After Effects, Lottie files, and Webflow interactions to create visually captivating animations." },
-  { id: 8, text: "Master of Business Administration in Digital Innovation and the Future of Business at PUC-RS, preparing myself for the challenges and opportunities of the digital age." },
+  {
+    id: 1,
+    title: 'Discovery and product thinking',
+    text: 'We align technical choices with your business outcomes, then define a roadmap that removes guesswork before development starts.',
+  },
+  {
+    id: 2,
+    title: 'Modern engineering execution',
+    text: 'From marketing sites to custom platforms, we ship maintainable systems with clean architecture, clear ownership, and strong delivery standards.',
+  },
+  {
+    id: 3,
+    title: 'AI and workflow automation',
+    text: 'We design practical AI and ML workflows that accelerate internal operations, customer support, and data-informed decisions.',
+  },
+  {
+    id: 4,
+    title: 'Commerce and CMS acceleration',
+    text: 'Shopify and WordPress solutions are delivered with conversion-first structure, scalable content models, and predictable performance.',
+  },
+  {
+    id: 5,
+    title: 'Long-term delivery partnership',
+    text: 'We stay involved after launch with improvements, iteration cycles, and engineering support so products keep compounding value.',
+  },
 ];
 
 export default function About() {
@@ -76,8 +94,15 @@ export default function About() {
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         {/* Section label */}
         <div className="about-title text-center mb-12 sm:mb-16">
-          <p className="text-white/40 text-sm tracking-[0.2em] uppercase mb-2">
-            About Me
+          <p className="text-teal-400 text-xs sm:text-sm tracking-[0.25em] uppercase mb-3">
+            About DevNox Lab
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-tight tracking-tight">
+            Product-minded engineers building
+            <span className="font-medium"> software that performs</span>
+          </h2>
+          <p className="mt-5 text-white/60 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
+            We are a software services company with 3+ years of industrial delivery across websites, mobile apps, AI/ML systems, and commerce platforms.
           </p>
         </div>
 
@@ -109,48 +134,8 @@ export default function About() {
                 <p className={`text-sm sm:text-base lg:text-lg leading-relaxed transition-colors duration-300 ${
                   activeIndex === index ? 'text-white' : 'text-white/60 group-hover:text-white/80'
                 }`}>
-                  {point.text.includes('Curso de Webflow') ? (
-                    <>
-                      Founder and teacher at{' '}
-                      <a 
-                        href="https://cursodewebflow.com.br" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-teal-400 hover:underline"
-                      >
-                        Curso de Webflow
-                      </a>
-                      , the first Webflow course in Brazil with over 400 students.
-                    </>
-                  ) : point.text.includes('Finsweet') && point.id === 4 ? (
-                    <>
-                      Partner at{' '}
-                      <a 
-                        href="https://finsweet.com" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-teal-400 hover:underline"
-                      >
-                        Finsweet
-                      </a>
-                      {' '}for 6 years, proudly contributing to one of the largest agencies specializing in Webflow globally.
-                    </>
-                  ) : point.text.includes('Client-First') ? (
-                    <>
-                      Creator and certified developer of the{' '}
-                      <a 
-                        href="https://finsweet.com/client-first" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-teal-400 hover:underline"
-                      >
-                        Client-First
-                      </a>
-                      {' '}style system, utilized for crafting organized and easily maintainable websites.
-                    </>
-                  ) : (
-                    point.text
-                  )}
+                  <span className="block text-white text-base sm:text-lg font-medium mb-2">{point.title}</span>
+                  {point.text}
                 </p>
               </div>
             ))}

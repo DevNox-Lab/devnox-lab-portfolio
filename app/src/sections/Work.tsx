@@ -10,8 +10,8 @@ interface Project {
   name: string;
   location: string;
   countryCode: string;
-  designedBy: string | null;
-  developedBy: string;
+  summary: string;
+  stack: string;
   image: string;
   url: string;
 }
@@ -22,8 +22,8 @@ const projects: Project[] = [
     name: "Octogatos",
     location: "San Francisco - United States",
     countryCode: "US",
-    designedBy: "Insany",
-    developedBy: "Eve Kayser",
+    summary: 'Conversion-focused website with strong storytelling and motion.',
+    stack: 'Web + UX',
     image: "/images/project-octogatos.jpg",
     url: "https://octogatos-project.webflow.io/"
   },
@@ -32,8 +32,8 @@ const projects: Project[] = [
     name: "Protex AI",
     location: "Limerick, Ireland",
     countryCode: "IE",
-    designedBy: "Insany",
-    developedBy: "Eve Kayser",
+    summary: 'B2B product site crafted for clarity, trust, and lead generation.',
+    stack: 'Web + Product',
     image: "/images/project-protex.jpg",
     url: "https://protex-ai-project.webflow.io/"
   },
@@ -42,8 +42,8 @@ const projects: Project[] = [
     name: "XB Fulfillment",
     location: "Los Angeles - United States",
     countryCode: "US",
-    designedBy: "Eve Kayser",
-    developedBy: "Eve Kayser",
+    summary: 'Operations-centric platform presence built for enterprise audiences.',
+    stack: 'Web + CMS',
     image: "/images/project-xbfulfillment.jpg",
     url: "https://xb-fulfillment-project.webflow.io/"
   },
@@ -52,8 +52,8 @@ const projects: Project[] = [
     name: "Adaflow",
     location: "São Paulo - Brazil",
     countryCode: "BR",
-    designedBy: null,
-    developedBy: "Leo Fontana",
+    summary: 'Clean digital product narrative supported by fast, responsive UI.',
+    stack: 'Product + Frontend',
     image: "/images/project-adaflow.jpg",
     url: "https://adaflow-project.webflow.io/"
   },
@@ -62,8 +62,8 @@ const projects: Project[] = [
     name: "Raise",
     location: "San Francisco - United States",
     countryCode: "US",
-    designedBy: null,
-    developedBy: "Eve Kayser",
+    summary: 'Modern growth website aligned to launch velocity and conversion goals.',
+    stack: 'Growth + Web',
     image: "/images/project-raise.jpg",
     url: "https://raise-website-project.webflow.io"
   },
@@ -72,8 +72,8 @@ const projects: Project[] = [
     name: "Deepscribe",
     location: "Berkeley - United States",
     countryCode: "US",
-    designedBy: "Eve Kayser",
-    developedBy: "Eve Kayser",
+    summary: 'Healthcare-facing experience balancing speed, hierarchy, and trust.',
+    stack: 'Web + Brand UX',
     image: "/images/project-deepscribe.jpg",
     url: "https://deepscribe-project.webflow.io/"
   },
@@ -128,11 +128,14 @@ export default function Work() {
         {/* Header */}
         <div className="work-header text-center mb-12 sm:mb-16">
           <p className="text-teal-400 text-xs sm:text-sm tracking-[0.2em] uppercase mb-3">
-            Happy Clients &lt;3
+            Selected projects
           </p>
           <h2 className="text-4xl sm:text-5xl lg:text-7xl font-light text-white tracking-tight">
-            Recent Work
+            Case Studies
           </h2>
+          <p className="mt-4 text-white/55 text-sm sm:text-base max-w-2xl mx-auto">
+            A sample of software and digital experiences delivered for startups and growth-stage teams.
+          </p>
         </div>
 
         {/* Projects Grid */}
@@ -174,11 +177,11 @@ export default function Work() {
                   {project.location}
                 </p>
                 
+                <p className="text-white/55 text-sm leading-relaxed mb-3">{project.summary}</p>
+
                 <div className="flex flex-wrap gap-x-4 text-xs text-white/30">
-                  {project.designedBy && (
-                    <span>Designed by: {project.designedBy}</span>
-                  )}
-                  <span>Developed by: {project.developedBy}</span>
+                  <span>Service line: {project.stack}</span>
+                  <span>Delivered by: DevNox Lab</span>
                 </div>
               </div>
             </a>

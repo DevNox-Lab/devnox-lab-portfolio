@@ -25,9 +25,9 @@ export default function Home() {
         <Experience />
         <VideoShowcase />
         <About />
+        <Services />
         <Work />
         <Clients />
-        <Services />
         <Partners />
       </main>
       

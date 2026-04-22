@@ -18,24 +18,38 @@ const services: Service[] = [
   {
     id: 1,
     number: '01',
-    title: 'UI Design',
-    description: 'Bring your references, goals, and ideas, and we will design a website that you and your audience will love.',
-    detail: 'UI Design and handoff made on Figma.',
+    title: 'Web Platforms',
+    description: 'High-performance websites and web applications designed for conversion, speed, and maintainability.',
+    detail: 'Landing pages, company websites, dashboards, and custom web systems.',
   },
   {
     id: 2,
     number: '02',
-    title: 'Webflow Development',
-    description: "Bring your design from Figma, XD, or any other tool, and we'll turn your layout into a kickass website, super organized and following the top standards of the Webflow market.",
-    detail: null,
+    title: 'Mobile Applications',
+    description: 'Native-like mobile experiences for iOS and Android with robust APIs and scalable architecture.',
+    detail: 'From MVP builds to full production apps with analytics and release support.',
   },
   {
     id: 3,
     number: '03',
-    title: 'Webflow Mentorship',
-    description: 'More than 400+ students learned with me how to master the art of Webflow.',
-    detail: '* The online course is only available in Portuguese for Brazilians.',
-    link: { text: 'Go to Webflow Online Course', url: 'https://cursodewebflow.com.br' },
+    title: 'AI and ML Workflows',
+    description: 'Applied AI systems that automate operations, improve decision-making, and create measurable efficiency gains.',
+    detail: 'Automation pipelines, model integration, and data flow orchestration.',
+  },
+  {
+    id: 4,
+    number: '04',
+    title: 'Shopify and WordPress',
+    description: 'Commerce and CMS delivery focused on growth, editorial control, and long-term flexibility.',
+    detail: 'Theme development, storefront optimization, plugin setup, and migration services.',
+  },
+  {
+    id: 5,
+    number: '05',
+    title: 'Maintenance and Scale',
+    description: 'Continuous support after launch to improve UX, remove bottlenecks, and ship new features with confidence.',
+    detail: 'SLA-based support, sprint iterations, and technical consulting.',
+    link: { text: 'Talk to DevNox Lab', url: 'https://wa.me/5545991134020' },
   },
 ];
 
@@ -56,18 +70,23 @@ export default function Services() {
         ease: 'power3.out',
       });
 
-      gsap.from('.service-card', {
-        scrollTrigger: {
-          trigger: '.services-grid',
-          start: 'top 85%',
-          toggleActions: 'play none none reverse',
-        },
-        opacity: 0,
-        y: 50,
-        duration: 0.7,
-        stagger: 0.15,
-        ease: 'power3.out',
-      });
+      const cards = gsap.utils.toArray<HTMLElement>('.service-card');
+      if (cards.length) {
+        gsap.from(cards, {
+          opacity: 0,
+          y: 36,
+          duration: 0.65,
+          stagger: 0.1,
+          ease: 'power3.out',
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        });
+      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -88,14 +107,11 @@ export default function Services() {
           <div className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6">
             <svg viewBox="0 0 100 100" className="w-full h-full animate-spin-slow">
               <defs>
-                <path
-                  id="serviceCirclePath"
-                  d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
-                />
+                <path id="serviceCirclePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
               </defs>
               <text className="fill-white/30 text-[7px] uppercase tracking-[0.25em]">
                 <textPath href="#serviceCirclePath">
-                  WEBFLOW DEVELOPER • WEBFLOW DEVELOPER •
+                  SOFTWARE AGENCY • SOFTWARE AGENCY •
                 </textPath>
               </text>
             </svg>
@@ -105,7 +121,7 @@ export default function Services() {
           </div>
 
           <p className="text-teal-400 text-xs sm:text-sm tracking-[0.2em] uppercase mb-3">
-            How can I help?
+            What we do
           </p>
           <h2 className="text-4xl sm:text-5xl lg:text-7xl font-light text-white tracking-tight">
             Services
@@ -113,52 +129,60 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="services-grid grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="service-card group relative bg-dark-50 rounded-2xl p-6 sm:p-8 border border-white/5 hover:border-teal-400/20 transition-all duration-500"
-            >
-              {/* Number */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-px bg-teal-400/30" />
-                <span className="text-teal-400 text-sm font-medium">{service.number}</span>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl sm:text-2xl font-medium text-white mb-4 uppercase tracking-wide group-hover:text-teal-400 transition-colors">
-                {service.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-white/50 text-sm sm:text-base leading-relaxed mb-4">
-                {service.description}
-              </p>
-
-              {/* Detail */}
-              {service.detail && (
-                <p className="text-white/30 text-xs sm:text-sm italic mb-4">
-                  {service.detail}
-                </p>
-              )}
-
-              {/* Link */}
-              {service.link && (
-                <a
-                  href={service.link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-teal-400 text-sm hover:underline group/link"
+        <div className="services-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+          {services.length > 0 ? (
+            services.map((service) => {
+              return (
+                <div
+                  key={service.id}
+                  className="service-card group relative bg-dark-50 rounded-2xl p-6 sm:p-8 border border-white/5 hover:border-teal-400/20 transition-all duration-500"
                 >
-                  <span>{service.link.text}</span>
-                  <ExternalLink className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                </a>
-              )}
+                  {/* Number */}
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-8 h-px bg-teal-400/30" />
+                    <span className="text-teal-400 text-sm font-medium">{service.number}</span>
+                  </div>
 
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl font-medium text-white mb-4 uppercase tracking-wide group-hover:text-teal-400 transition-colors">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-white/50 text-sm sm:text-base leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+
+                  {/* Detail */}
+                  {service.detail && (
+                    <p className="text-white/30 text-xs sm:text-sm italic mb-4">
+                      {service.detail}
+                    </p>
+                  )}
+
+                  {/* Link */}
+                  {service.link && (
+                    <a
+                      href={service.link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-teal-400 text-sm hover:underline group/link"
+                    >
+                      <span>{service.link.text}</span>
+                      <ExternalLink className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    </a>
+                  )}
+
+                  {/* Hover glow */}
+                  <div className="absolute inset-0 rounded-2xl bg-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                </div>
+              );
+            })
+          ) : (
+            <div className="col-span-full rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-white/60">
+              Services will be listed here shortly.
             </div>
-          ))}
+          )}
         </div>
 
         {/* CTA */}
@@ -169,7 +193,7 @@ export default function Services() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-400/30 rounded-full text-white text-sm transition-all duration-300"
           >
-            <span>Let's chat on Whatsapp</span>
+            <span>Book a discovery call</span>
           </a>
         </div>
       </div>
