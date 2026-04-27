@@ -1,55 +1,67 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-const words = [
-  'Webflow Expert',
-  'Awwwards Nominee',
-  'Client-First Certified',
-  'Webflow Developer',
+const tickerItems = [
+  'DevNox Lab - ',
+  'Product Engineering - ',
+  'Web Platforms - ',
+  'Mobile Apps - ',
+  'AI Workflows - ',
+  'Shopify - ',
+  'WordPress - ',
 ];
 
 export default function SideBadge() {
-  const [visible, setVisible] = useState(true);
+  const tickerRef = useRef<HTMLDivElement>(null);
+  const offsetRef = useRef(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Hide when scrolled past about section
-      const aboutEl = document.getElementById('about');
-      if (aboutEl) {
-        const rect = aboutEl.getBoundingClientRect();
-        setVisible(rect.top > window.innerHeight * 0.5);
+    const onScroll = () => {
+      const ticker = tickerRef.current;
+      if (ticker) {
+        const halfHeight = ticker.scrollHeight / 2;
+        offsetRef.current = (window.scrollY * 0.45) % halfHeight;
+
+        ticker.style.transform = `translateY(${-offsetRef.current}px)`;
       }
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
-  if (!visible) return null;
-
   return (
-    <div className="hidden xl:block fixed right-4 top-1/2 -translate-y-1/2 z-40">
-      <div className="flex flex-col items-center gap-6">
-        {/* Webflow logo circle */}
-        <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor">
-            <path d="M17.802 8.56s-1.946 6.103-2.105 6.607a1460.3 1460.3 0 0 0-.078-4.413C15.454 8.78 14.52 2 14.52 2H10.16v.044s1.13 6.608 1.263 7.065c-.134-.457-1.49-7.065-1.49-7.065V2H5.063l-2.29 8.56h2.727s.972-4.93 1.127-5.69c.067.762.585 5.69.585 5.69h2.81c.152-.608.74-3.39.74-3.39s.433 2.782.587 3.39h2.81s.53-4.93.598-5.69c.156.76 1.127 5.69 1.127 5.69h2.727z"/>
-          </svg>
-        </div>
+    <aside className="hidden lg:flex fixed right-0 top-0 h-screen z-30 pointer-events-none">
+      {/* <div className="relative h-full w-[56px] border-l border-white/10 bg-black/35 backdrop-blur-sm"> */}
+        {/* <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-teal-400/50 to-transparent" /> */}
 
-        {/* Vertical text */}
-        <div className="[writing-mode:vertical-lr] text-white/10 text-[10px] tracking-[0.3em] uppercase whitespace-nowrap">
-          {words.join(' \u2022 ')} \u2022
-        </div>
+        {/* <div className="relative flex h-full flex-col items-center px-2 py-5">
+          <div className="h-1.5 w-1.5 rounded-full bg-teal-300/80 shadow-[0_0_10px_rgba(94,234,212,0.6)]" /> */}
 
-        {/* Client-First badge */}
-        <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <span className="text-white/50 text-[10px] font-medium">CF</span>
-        </div>
+          <div className="relative my-4 w-full flex-1 overflow-hidden rounded-lg">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-black/80 to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-black/80 to-transparent z-10" />
 
-        {/* More vertical text */}
-        <div className="[writing-mode:vertical-lr] text-white/10 text-[10px] tracking-[0.3em] uppercase whitespace-nowrap">
-          {words.join(' \u2022 ')} \u2022
-        </div>
-      </div>
-    </div>
+            <div className="relative h-full overflow-hidden py-8">
+              <div ref={tickerRef} className="flex flex-col items-center gap-3 will-change-transform">
+                {[...tickerItems, ...tickerItems].map((item, index) => (
+                  <p
+                    key={`${item}-${index}`}
+                    className="text-white/55 text-[15px] tracking-[0.14em] uppercase leading-none text-center whitespace-nowrap [writing-mode:vertical-rl] [text-orientation:mixed]"
+                  >
+                    {item}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+{/* 
+          <div className="h-1.5 w-1.5 rounded-full bg-white/50" />
+        </div> */}
+      {/* </div> */}
+    </aside>
   );
 }

@@ -58,18 +58,24 @@ export default function About() {
         ease: 'power3.out',
       });
 
-      // Line glow animation
-      gsap.from('.line-glow-container', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 70%',
-          toggleActions: 'play none none reverse',
+      // Keep the guide line synced to scroll so it grows downward and folds back up.
+      gsap.fromTo(
+        '.line-glow',
+        {
+          scaleY: 0,
+          transformOrigin: 'top',
         },
-        scaleY: 0,
-        duration: 1,
-        ease: 'power3.out',
-        transformOrigin: 'top',
-      });
+        {
+          scaleY: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.about-list',
+            start: 'top 78%',
+            end: 'bottom 72%',
+            scrub: true,
+          },
+        }
+      );
 
       // Stagger the list items
       gsap.from('.about-item', {
@@ -108,7 +114,7 @@ export default function About() {
 
         <div className="relative">
           {/* Glowing vertical line */}
-          <div className="line-glow-container absolute left-4 sm:left-8 top-0 bottom-0 w-px">
+          <div className="line-glow-container absolute ml-[-40px] sm:left-6 top-0 bottom-0 w-[3px]">
             <div className="w-full h-full line-glow" />
           </div>
 

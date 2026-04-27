@@ -184,6 +184,59 @@
   .line-glow {
     background: linear-gradient(180deg, transparent 0%, rgba(0, 229, 201, 0.6) 50%, transparent 100%);
   }
+
+  .hero-grid-pan {
+    animation: hero-grid-pan 24s linear infinite;
+  }
+
+  @keyframes hero-grid-pan {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-30px, -30px, 0); }
+  }
+
+  .hero-scan-line {
+    animation: hero-scan-line 4.8s ease-in-out infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes hero-scan-line {
+    0%, 100% { transform: translateY(0); opacity: 0.15; }
+    50% { transform: translateY(280px); opacity: 0.85; }
+  }
+
+  .hero-orbit-ring {
+    animation: hero-orbit-ring 12s linear infinite;
+  }
+
+  .hero-orbit-ring-reverse {
+    animation-direction: reverse;
+    animation-duration: 9s;
+  }
+
+  @keyframes hero-orbit-ring {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-path-draw {
+    stroke-dasharray: 480;
+    stroke-dashoffset: 480;
+    animation: hero-path-draw 3.8s ease-out infinite alternate;
+  }
+
+  @keyframes hero-path-draw {
+    0% { stroke-dashoffset: 480; opacity: 0.45; }
+    55%, 100% { stroke-dashoffset: 0; opacity: 1; }
+  }
+
+  .hero-path-drift {
+    animation: hero-path-drift 10s linear infinite;
+  }
+
+  @keyframes hero-path-drift {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -180; }
+  }
 }
 
 /* Scrollbar styling */

@@ -46,6 +46,28 @@ export default function VideoShowcase() {
 
   return (
     <section ref={sectionRef} className="relative py-8 sm:py-16 bg-black overflow-hidden">
+      {/* Cursor indicator */}
+        <div className="mb-8 flex justify-center">
+          <div className="w-4 h-4 text-teal-400 animate-bounce">
+            <svg viewBox="0 0 16 16" fill="currentColor">
+              <polygon points="8,16 0,0 16,0" />
+            </svg>
+          </div>
+        </div>
+      
+      {/* Section intro */}
+      <div className="relative max-w-6xl mx-auto px-6 mb-8 sm:mb-10 text-center">
+        <p className="text-teal-400 text-xs sm:text-sm tracking-[0.2em] uppercase mb-3">
+          Video Testimonials
+        </p>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight">
+          What clients say after launch
+        </h2>
+        <p className="mt-4 text-white/60 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
+          These are our video showcases of client testimonials, sharing their experience working with DevNox Lab across web, mobile, AI/ML, and commerce projects.
+        </p>
+      </div>
+
       {/* Video container */}
       <div className="video-container relative max-w-6xl mx-auto px-6 mb-8">
         <div className="relative rounded-2xl overflow-hidden bg-dark-100 aspect-video">
@@ -88,6 +110,15 @@ export default function VideoShowcase() {
               <span className="mx-4 sm:mx-6 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-teal-500 inline-block" />
             </span>
           ))}
+        </div>
+      </div>
+
+      {/* Cursor indicator */}
+      <div className="mt-6 flex justify-center">
+        <div className="w-4 h-4 text-teal-400 animate-bounce">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <polygon points="8,16 0,0 16,0" />
+          </svg>
         </div>
       </div>
     </section>

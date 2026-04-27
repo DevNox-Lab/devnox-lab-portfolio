@@ -48,7 +48,7 @@ export default function Footer() {
   }, []);
 
   const marqueeText = 'Build with DevNox Lab - ';
-  const repeatCount = 8;
+  const repeatCount = 4;
 
   return (
     <footer ref={sectionRef} className="relative bg-black overflow-hidden">

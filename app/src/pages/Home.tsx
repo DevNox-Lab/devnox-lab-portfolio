@@ -1,7 +1,6 @@
 import TopBar from '@/sections/TopBar';
 import Header from '@/sections/Header';
 import Hero from '@/sections/Hero';
-import Experience from '@/sections/Experience';
 import VideoShowcase from '@/sections/VideoShowcase';
 import About from '@/sections/About';
 import Work from '@/sections/Work';
@@ -22,7 +21,6 @@ export default function Home() {
       {/* Main content */}
       <main>
         <Hero />
-        <Experience />
         <VideoShowcase />
         <About />
         <Services />
