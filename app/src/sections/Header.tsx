@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { label: 'HOME', href: '#home' },
   { label: 'ABOUT ME', href: '#about' },
   { label: 'WORK', href: '#work' },
   { label: 'SERVICES', href: '#services' },
-  { label: 'WEBFLOW EXPERT', href: 'https://webflow.com', external: true },
 ];
 
 export default function Header() {
@@ -60,26 +59,19 @@ export default function Header() {
               key={link.label}
               href={link.href}
               onClick={(e) => {
-                if (!link.external) {
-                  e.preventDefault();
-                  scrollToSection(link.href);
-                }
+                e.preventDefault();
+                scrollToSection(link.href);
               }}
-              target={link.external ? '_blank' : undefined}
-              rel={link.external ? 'noopener noreferrer' : undefined}
               className={`relative px-5 py-2 text-xs font-medium tracking-wider rounded-full transition-all duration-300 ${
-                activeSection === link.href.slice(1) && !link.external
+                activeSection === link.href.slice(1)
                   ? 'text-teal-400'
                   : 'text-white/70 hover:text-white'
               }`}
             >
-              {activeSection === link.href.slice(1) && !link.external && (
+              {activeSection === link.href.slice(1) && (
                 <span className="absolute inset-0 bg-white/5 rounded-full" />
               )}
-              <span className="relative flex items-center gap-1">
-                {link.label}
-                {link.external && <ArrowUpRight className="w-3 h-3" />}
-              </span>
+              <span className="relative">{link.label}</span>
             </a>
           ))}
         </nav>
@@ -102,17 +94,12 @@ export default function Header() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => {
-                  if (!link.external) {
-                    e.preventDefault();
-                    scrollToSection(link.href);
-                  }
+                  e.preventDefault();
+                  scrollToSection(link.href);
                 }}
-                target={link.external ? '_blank' : undefined}
-                rel={link.external ? 'noopener noreferrer' : undefined}
-                className="text-2xl font-medium text-white/80 hover:text-teal-400 transition-colors flex items-center gap-2"
+                className="text-2xl font-medium text-white/80 hover:text-teal-400 transition-colors"
               >
                 {link.label}
-                {link.external && <ArrowUpRight className="w-5 h-5" />}
               </a>
             ))}
           </div>
