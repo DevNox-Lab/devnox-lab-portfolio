@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const socialLinks = [
   { name: 'LINKEDIN', icon: Linkedin, url: 'https://www.linkedin.com' },
   { name: 'GITHUB', icon: Github, url: 'https://github.com' },
-  { name: 'WHATSAPP', icon: MessageCircle, url: 'https://wa.me/5545991134020' },
+  { name: 'WHATSAPP', icon: MessageCircle, url: 'https://wa.me/03174263017' },
   { name: 'EMAIL', icon: Mail, url: 'mailto:hello@devnoxlab.com' },
 ];
 

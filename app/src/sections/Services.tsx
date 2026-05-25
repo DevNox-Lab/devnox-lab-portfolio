@@ -49,7 +49,7 @@ const services: Service[] = [
     title: 'Maintenance and Scale',
     description: 'Continuous support after launch to improve UX, remove bottlenecks, and ship new features with confidence.',
     detail: 'SLA-based support, sprint iterations, and technical consulting.',
-    link: { text: 'Talk to DevNox Lab', url: 'https://wa.me/5545991134020' },
+    link: { text: 'Talk to DevNox Lab', url: 'https://wa.me/03174263017' },
   },
 ];
 
@@ -188,7 +188,7 @@ export default function Services() {
         {/* CTA */}
         <div className="text-center mt-10 sm:mt-14">
           <a
-            href="https://wa.me/5545991134020"
+            href="https://wa.me/03174263017"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-400/30 rounded-full text-white text-sm transition-all duration-300"
