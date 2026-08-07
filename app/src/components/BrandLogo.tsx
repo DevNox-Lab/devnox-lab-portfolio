@@ -9,7 +9,7 @@ export default function BrandLogo({
 }: BrandLogoProps) {
   return (
     <img
-      src="/images/FullLogo.jpg"
+      src="/images/logo-2.png"
       alt={alt}
       className={className}
     />
