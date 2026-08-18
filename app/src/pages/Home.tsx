@@ -4,6 +4,7 @@ import Hero from '@/sections/Hero';
 import VideoShowcase from '@/sections/VideoShowcase';
 import About from '@/sections/About';
 import Work from '@/sections/Work';
+import Team from '@/sections/Team';
 import Clients from '@/sections/Clients';
 import Services from '@/sections/Services';
 import Partners from '@/sections/Partners';
@@ -25,6 +26,7 @@ export default function Home() {
         <About />
         <Services />
         <Work />
+        <Team />
         <Clients />
         <Partners />
       </main>

@@ -19,63 +19,33 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    name: "Octogatos",
-    location: "San Francisco - United States",
-    countryCode: "US",
-    summary: 'Conversion-focused website with strong storytelling and motion.',
-    stack: 'Web + UX',
-    image: "/images/project-octogatos.jpg",
-    url: "https://octogatos-project.webflow.io/"
+    name: "Cars365 Studio",
+    location: "Dubai, UAE",
+    countryCode: "AE",
+    summary: 'A polished automotive brand and studio experience designed for discovery, trust, and conversions.',
+    stack: 'Brand + Web',
+    image: "/images/Cars365%20Portfolio%20Poster%20Alt.png",
+    url: "https://cars365studio.com/"
   },
   {
     id: 2,
-    name: "Protex AI",
-    location: "Limerick, Ireland",
-    countryCode: "IE",
-    summary: 'B2B product site crafted for clarity, trust, and lead generation.',
-    stack: 'Web + Product',
-    image: "/images/project-protex.jpg",
-    url: "https://protex-ai-project.webflow.io/"
+    name: "Let's Celebrate",
+    location: "Remote / Global",
+    countryCode: "GLOBAL",
+    summary: 'A React Native event commerce app with buyer and seller flows, product discovery, bookings, and Stripe-powered checkout.',
+    stack: 'Mobile + Commerce',
+    image: "/images/Let_s Celebrate App Poster Alt.png",
+    url: "https://github.com/TalhaZubair-debuger/lets-celebrate-front-end"
   },
   {
     id: 3,
-    name: "XB Fulfillment",
-    location: "Los Angeles - United States",
-    countryCode: "US",
-    summary: 'Operations-centric platform presence built for enterprise audiences.',
-    stack: 'Web + CMS',
-    image: "/images/project-xbfulfillment.jpg",
-    url: "https://xb-fulfillment-project.webflow.io/"
-  },
-  {
-    id: 4,
-    name: "Adaflow",
-    location: "São Paulo - Brazil",
-    countryCode: "BR",
-    summary: 'Clean digital product narrative supported by fast, responsive UI.',
-    stack: 'Product + Frontend',
-    image: "/images/project-adaflow.jpg",
-    url: "https://adaflow-project.webflow.io/"
-  },
-  {
-    id: 5,
-    name: "Raise",
-    location: "San Francisco - United States",
-    countryCode: "US",
-    summary: 'Modern growth website aligned to launch velocity and conversion goals.',
-    stack: 'Growth + Web',
-    image: "/images/project-raise.jpg",
-    url: "https://raise-website-project.webflow.io"
-  },
-  {
-    id: 6,
-    name: "Deepscribe",
-    location: "Berkeley - United States",
-    countryCode: "US",
-    summary: 'Healthcare-facing experience balancing speed, hierarchy, and trust.',
-    stack: 'Web + Brand UX',
-    image: "/images/project-deepscribe.jpg",
-    url: "https://deepscribe-project.webflow.io/"
+    name: "Hostel Information System",
+    location: "Remote / Global",
+    countryCode: "GLOBAL",
+    summary: 'An Expo-based hostel booking platform with user and seller flows, hostel discovery, favorites, messaging, and Stripe checkout.',
+    stack: 'Mobile + Booking',
+    image: "/images/Hostel System Poster Alt.png",
+    url: "https://github.com/TalhaZubair-debuger/Hostel-Information-System-App-frontend"
   },
 ];
 
@@ -84,6 +54,8 @@ const getFlag = (code: string) => {
     US: '🇺🇸',
     IE: '🇮🇪',
     BR: '🇧🇷',
+    AE: '🇦🇪',
+    GLOBAL: '🌎',
   };
   return flags[code] || '🌎';
 };
@@ -131,28 +103,30 @@ export default function Work() {
             Selected projects
           </p>
           <h2 className="text-4xl sm:text-5xl lg:text-7xl font-light text-white tracking-tight">
-            Case Studies
+            Case Study
           </h2>
           <p className="mt-4 text-white/55 text-sm sm:text-base max-w-2xl mx-auto">
-            A sample of software and digital experiences delivered for startups and growth-stage teams.
+            A live brand and digital experience delivered for a modern automotive studio.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="projects-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 items-stretch">
           {projects.map((project) => (
             <a
               key={project.id}
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="project-card group block bg-dark-50 rounded-2xl overflow-hidden border border-white/5 hover:border-teal-400/20 transition-all duration-500 card-hover"
+              className="project-card group flex h-full min-h-[560px] flex-col bg-dark-50 rounded-2xl overflow-hidden border border-white/5 hover:border-teal-400/20 transition-all duration-500 card-hover"
             >
               {/* Image */}
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[16/11] overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-50 via-transparent to-transparent opacity-60" />
@@ -164,22 +138,22 @@ export default function Work() {
               </div>
 
               {/* Content */}
-              <div className="p-5 sm:p-6">
-                <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-lg sm:text-xl font-medium text-white group-hover:text-teal-400 transition-colors">
+              <div className="p-5 sm:p-6 flex flex-1 flex-col">
+                <div className="flex items-start justify-between mb-2 gap-3">
+                  <h3 className="text-lg sm:text-xl font-medium text-white group-hover:text-teal-400 transition-colors leading-tight">
                     {project.name}
                   </h3>
-                  <ArrowUpRight className="w-5 h-5 text-white/30 group-hover:text-teal-400 transition-all transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="w-5 h-5 shrink-0 text-white/30 group-hover:text-teal-400 transition-all transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
                 
-                <p className="text-white/40 text-sm mb-3 flex items-center gap-2">
+                <p className="text-white/40 text-sm mb-3 flex items-center gap-2 min-h-[1.5rem]">
                   <span>{getFlag(project.countryCode)}</span>
                   {project.location}
                 </p>
                 
-                <p className="text-white/55 text-sm leading-relaxed mb-3">{project.summary}</p>
+                <p className="text-white/55 text-sm leading-relaxed mb-3 flex-1 min-h-[72px]">{project.summary}</p>
 
-                <div className="flex flex-wrap gap-x-4 text-xs text-white/30">
+                <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-white/30 pt-2 border-t border-white/5 mt-auto">
                   <span>Service line: {project.stack}</span>
                   <span>Delivered by: DevNox Lab</span>
                 </div>

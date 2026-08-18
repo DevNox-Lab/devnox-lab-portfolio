@@ -10,7 +10,7 @@ const socialLinks = [
   { name: 'LINKEDIN', icon: Linkedin, url: 'https://www.linkedin.com' },
   { name: 'GITHUB', icon: Github, url: 'https://github.com' },
   { name: 'WHATSAPP', icon: MessageCircle, url: 'https://wa.me/03174263017' },
-  { name: 'EMAIL', icon: Mail, url: 'mailto:hello@devnoxlab.com' },
+  { name: 'EMAIL', icon: Mail, url: 'mailto:admin@devnoxlab.com' },
 ];
 
 export default function Footer() {
@@ -100,10 +100,10 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <BrandLogo className="h-12 sm:h-14 w-auto" />
             <a 
-              href="mailto:hello@devnoxlab.com"
+              href="mailto:admin@devnoxlab.com"
               className="text-white/40 hover:text-teal-400 text-xs sm:text-sm transition-colors ml-2"
             >
-              hello@devnoxlab.com
+              admin@devnoxlab.com
             </a>
           </div>
 
